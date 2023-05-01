@@ -1,0 +1,13 @@
+.inputBox {
+    display: flex;
+    height: 100px;
+    max-height: 100px;
+    justify-content: right;
+    align-items: flex-end;
+    padding: 1rem;
+    color: white;
+    font-family: San Francisco, sans-serif;
+    font-weight: 400;
+    font-size: 3rem;
+    word-break: break-all;
+}
