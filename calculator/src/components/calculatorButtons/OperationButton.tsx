@@ -39,7 +39,7 @@ export const OperationButton: FC<Props> = ({ value, color }) => {
         updateOp({ op: op } as CalculatorProps);
       }
     },
-    [state]
+    [state, removeValues, reset, updateOp, updateResult, value]
   );
 
   return (

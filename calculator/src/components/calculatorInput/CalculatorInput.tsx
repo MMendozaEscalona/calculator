@@ -16,7 +16,7 @@ export const CalculatorInput = () => {
     } else {
       setInputValue(undefined);
     }
-  }, [changeValue1, changeValue2, state.result]);
+  }, [changeValue1, changeValue2, state.result, state.value1, state.value2]);
 
   return <div className={style.inputBox}>{inputValue || 0}</div>;
 };

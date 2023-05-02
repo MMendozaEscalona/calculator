@@ -39,9 +39,8 @@ export const NumberButton = () => {
         changeValue2({ value2: currentValue } as CalculatorProps);
       }
     },
-    [state]
+    [state, changeValue1, changeValue2]
   );
-
   return (
     <div className={style.numberGrid}>
       {numbers.current.map((number) => {
