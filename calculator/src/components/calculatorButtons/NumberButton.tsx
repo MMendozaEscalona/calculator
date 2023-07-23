@@ -42,19 +42,19 @@ export const NumberButton = () => {
     [state, changeValue1, changeValue2]
   );
   return (
-    <div className={style.numberGrid}>
+    <>
       {numbers.current.map((number) => {
         return (
-          <span
-            className={[style.numberButtons, style.textButton].join(" ")}
+          <div
+            className={[[style["calculator__button"]].join(" ")].join(" ")}
             onClick={(event) => handleChangeValue(event)}
             key={number}
             data-value={number}
           >
-            {number}
-          </span>
+            <p>{number}</p>
+          </div>
         );
       })}
-    </div>
+    </>
   );
 };

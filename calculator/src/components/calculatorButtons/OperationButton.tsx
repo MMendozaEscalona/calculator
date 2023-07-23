@@ -4,9 +4,10 @@ import {
   CalculatorContext,
   CalculatorProps,
 } from "@/context/calculator/CalculatorContext";
+import { Icons } from "@/constants/icons";
 
 export interface Operation {
-  icon: string;
+  icon: Icons;
   op: undefined | ((value1: number, value2: number) => number);
 }
 
@@ -16,7 +17,7 @@ interface Props {
 }
 
 export const OperationButton: FC<Props> = ({ value, color }) => {
-  const { state, updateOp, updateResult, reset, removeValues } =
+  const { state, changeValue1, updateOp, updateResult, reset, removeValues } =
     useContext(CalculatorContext);
 
   const handleUpdateOp = useCallback(
@@ -32,6 +33,7 @@ export const OperationButton: FC<Props> = ({ value, color }) => {
         result = state.op(parseFloat(state.value1), parseFloat(state.value2));
         updateResult({ result: result } as CalculatorProps);
         removeValues();
+        changeValue1({ value1: result.toString() } as CalculatorProps);
         return;
       }
 
@@ -46,19 +48,19 @@ export const OperationButton: FC<Props> = ({ value, color }) => {
     <>
       {value.map((op) => {
         return (
-          <span
-            className={style.textButton}
+          <div
+            className={style["calculator__button"]}
             style={{ backgroundColor: color }}
             key={op.icon}
             onClick={(event) => handleUpdateOp(event)}
             data-value={op.icon}
           >
-            {["AC", "MOD"].includes(op.icon) ? (
+            {[Icons.AC, Icons.MOD].includes(op.icon) ? (
               op.icon
             ) : (
               <i className={op.icon} />
             )}
-          </span>
+          </div>
         );
       })}
     </>

@@ -4,7 +4,7 @@ import style from "./style.module.scss";
 
 export const CalculatorBox = () => {
   return (
-    <div className={style.calculatorBox}>
+    <div className={style["calculator-box"]}>
       <CalculatorInput />
       <CalculatorGridNumber />
     </div>
