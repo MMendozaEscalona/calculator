@@ -1,4 +1,4 @@
-import React, { FC, useReducer } from "react";
+import React, { FC, useCallback, useReducer } from "react";
 import { CalculatorContext, CalculatorProps } from "./CalculatorContext";
 import { calculatorReducer } from "./calculatorReducer";
 
@@ -19,28 +19,44 @@ export const CalculatorProvider: FC<Props> = ({ children }) => {
     INITIAL_CALCULATOR_VALUE
   );
 
-  const changeValue1 = (value1: CalculatorProps) => {
-    dispatch({ type: "CalculatorReducer - change value 1", payload: value1 });
-  };
+  const changeValue1 = useCallback(
+    (value1: CalculatorProps) => {
+      dispatch({ type: "CalculatorReducer - change value 1", payload: value1 });
+    },
+    [dispatch]
+  );
 
-  const changeValue2 = (value2: CalculatorProps) => {
-    dispatch({ type: "CalculatorReducer - change value 2", payload: value2 });
-  };
+  const changeValue2 = useCallback(
+    (value2: CalculatorProps) => {
+      dispatch({ type: "CalculatorReducer - change value 2", payload: value2 });
+    },
+    [dispatch]
+  );
 
-  const updateResult = (result: CalculatorProps) => {
-    dispatch({ type: "CalculatorReducer - update result", payload: result });
-  };
+  const updateResult = useCallback(
+    (result: CalculatorProps) => {
+      dispatch({ type: "CalculatorReducer - update result", payload: result });
+    },
+    [dispatch]
+  );
 
-  const updateOp = (result: CalculatorProps) => {
-    dispatch({ type: "CalculatorReducer - update operation", payload: result });
-  };
+  const updateOp = useCallback(
+    (result: CalculatorProps) => {
+      dispatch({
+        type: "CalculatorReducer - update operation",
+        payload: result,
+      });
+    },
+    [dispatch]
+  );
 
-  const removeValues = () => {
+  const removeValues = useCallback(() => {
     dispatch({ type: "CalculatorReducer - removeValues" });
-  };
-  const reset = () => {
+  }, [dispatch]);
+
+  const reset = useCallback(() => {
     dispatch({ type: "CalculatorReducer - reset" });
-  };
+  }, [dispatch]);
 
   return (
     <CalculatorContext.Provider
