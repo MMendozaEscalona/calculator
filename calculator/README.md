@@ -15,5 +15,5 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can access directly to the calculator with the following link https://calculator-melaniemendoza1992-gmailcom.vercel.app/
+You can access directly to the calculator with the following link https://calculator-orpin-one.vercel.app/
 
