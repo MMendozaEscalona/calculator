@@ -1,12 +1,13 @@
 .input-box {
-    display: flex;
-    height: 100px;
-    justify-content: right;
-    align-items: flex-end;
-    padding: 1rem;
-    color: white;
-    font-family: San Francisco, sans-serif;
-    font-weight: 400;
-    font-size: 3rem;
-    word-break: break-all;
+	display: flex;
+	align-items: flex-end;
+	justify-content: right;
+	height: 100px;
+	padding: 1rem;
+
+	color: white;
+	font-weight: 400;
+	font-size: 3rem;
+	font-family: "San Francisco", sans-serif;
+	word-break: break-all;
 }
